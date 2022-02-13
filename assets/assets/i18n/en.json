@@ -1,0 +1,20 @@
+{
+  "work": {
+    "tiles": {
+      "radicelle": {
+        "1": {
+          "title" : "Full stack multiplateforme Flutter",
+          "subtitle": "I realized the app I was building had more potential if it was to be in Flutter so I learned and reworked it with Flutter and it was the right choice. I am now working on a stack MVVM architecture and I am planning to learn Go to get replace Ktor with Gin."
+        },
+        "2": {
+          "title": "Full stack Web dev+Ops ReactJS/Ktor",
+          "subtitle": "I founded Radicelle which owns radicelle.eu. It will be series of web platforms willing to ease ”neo rural” people in selling agricultural products, develop their production systems and boost their local distribution by proposing simple and affordable services. Its stack is: Frontend : ReactJS eased by Material-UI. KMongo connected to Mongo Atlas. Backend : Ktor to expose REST APIs interfacing back and front entities using Kotlinx Serialization. • Kotlin gradle DSL for building the project. Featuring plugin DSLs and pre build features."
+        }
+      },
+      "eurecia": {
+        "title": "Full stack Web developper",
+        "subtitle": "Carrying out three main tasks, first maintaining java over struts + jsp legacy eurecia.com plateform code. The second was developing new features using REST API with Java and lately Kotlin (including spec challenging). The third was developing VueJS components calling the\nREST APIs we created and bind them to the legacy JSP struts architecture. Using Spring annotations and sometimes plain SQL to communicate whit a MariaDB database, my team and I were responsible for the optimization ROI to be acceptable and performances of the code to be production grade."
+      }
+    }
+  }
+}
