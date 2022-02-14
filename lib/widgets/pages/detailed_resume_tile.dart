@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_translate/flutter_translate.dart';
 
 import '../tiles/resume_tile.dart';
 
@@ -8,16 +7,16 @@ class DetailedResumeTile extends StatelessWidget {
   final ResumeTile item;
   @override
   Widget build(BuildContext context) {
-    var title = translate(item.title);
+    var title = item.title;
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Center(child: Text(title)),
-        ),
-        body: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Hero(
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).pop(),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            title: Center(child: Text(title)),
+          ),
+          body: Hero(
               tag: item,
               child: SingleChildScrollView(
                 child: Column(
@@ -34,7 +33,7 @@ class DetailedResumeTile extends StatelessWidget {
                           softWrap: true,
                           text: TextSpan(children: <TextSpan>[
                             TextSpan(
-                              text: translate(item.subtitle),
+                              text: item.subtitle,
                             )
                           ]),
                           textAlign: TextAlign.justify,

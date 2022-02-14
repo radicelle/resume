@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_translate/flutter_translate.dart';
 
 class ResumeTile extends StatefulWidget {
   const ResumeTile(
@@ -57,26 +56,24 @@ class _ResumeTileState extends State<ResumeTile>
                   widget.assetLocation,
                   height: imageHeight,
                   width: headingWidth,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.contain,
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 12.0),
-                  child: RichText(
-                    softWrap: true,
-                    text: TextSpan(children: <TextSpan>[
-                      TextSpan(
-                          text: translate(widget.title),
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.black.withOpacity(0.5))),
-                      const TextSpan(text: '\n'),
-                      TextSpan(
-                        text: translate(widget.subtitle),
-                      )
-                    ]),
-                    textAlign: TextAlign.justify,
+                  child: Center(
+                    child: RichText(
+                      softWrap: true,
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                            text: widget.title,
+                            style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black.withOpacity(0.5))),
+                      ]),
+                      textAlign: TextAlign.justify,
+                    ),
                   ),
                 ),
               ),

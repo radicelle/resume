@@ -35,44 +35,66 @@ class _TripleIconState extends State<TripleIcon> {
     return RotationTransition(
       turns: _animation,
       child: SizedBox(
-        height: 40,
-        width: 40,
+        height: 60,
+        width: 60,
         child: Stack(
           children: [
-            Positioned(
-              child: RotationTransition(
-                turns: _animTurnR,
-                child: Image(
-                  image: AssetImage(widget._assets[0]),
-                  width: 15,
-                ),
-              ),
-              left: 10,
-            ),
-            Positioned(
-                child: RotationTransition(
-                  turns: _animTurnR,
-                  child: Image(
-                    image: AssetImage(widget._assets[1]),
-                    width: 15,
-                    height: 20,
-                  ),
-                ),
-                top: 15),
-            Positioned(
-              child: RotationTransition(
-                turns: _animTurnR,
-                child: Image(
-                  image: AssetImage(widget._assets[2]),
-                  width: 15,
-                ),
-              ),
-              top: 20,
+            MiniIcon(
+              animTurnR: _animTurnR,
+              assetLocation: widget._assets[0],
               left: 20,
-            )
+              top: 5,
+            ),
+            MiniIcon(
+              animTurnR: _animTurnR,
+              assetLocation: widget._assets[1],
+              left: 5,
+              top: 35,
+            ),
+            MiniIcon(
+              animTurnR: _animTurnR,
+              assetLocation: widget._assets[2],
+              left: 35,
+              top: 35,
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class MiniIcon extends StatelessWidget {
+  const MiniIcon({
+    Key? key,
+    required Animation<double> animTurnR,
+    required this.assetLocation,
+    required this.left,
+    required this.top,
+    this.right,
+  })  : _animTurnR = animTurnR,
+        super(key: key);
+
+  final Animation<double> _animTurnR;
+  final String assetLocation;
+  final double left;
+  final double top;
+  final double? right;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        child: RotationTransition(
+          turns: _animTurnR,
+          child: SizedBox(
+              child: Image.asset(
+            assetLocation,
+            width: 20,
+            height: 20,
+            fit: BoxFit.contain,
+          )),
+        ),
+        left: left,
+        top: top);
   }
 }
