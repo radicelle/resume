@@ -8,5 +8,14 @@
   "eureciaTileDesc": "Carrying out three main tasks, first maintaining java over struts + jsp legacy eurecia.com plateform code. The second was developing new features using REST API with Java and lately Kotlin (including spec challenging). The third was developing VueJS components calling the\nREST APIs we created and bind them to the legacy JSP struts architecture. Using Spring annotations and sometimes plain SQL to communicate whit a MariaDB database, my team and I were responsible for the optimization ROI to be acceptable and performances of the code to be production grade.",
   "artalTile": "Full stack Eclipse RCP developper",
   "artalTileDesc": "Software development for Airbus model simulation process: Creation of front-end components using Nebula Nattables and Sirius Plugin for instance. Participation in the migration from CDO to Hibernate persistence framework. Creation and optimization of JPA queries to retrieve data in back-end. Strong knowledge in modular development.",
-  "tileTooltip": "Cliquez pour plus de détails"
+  "tileTooltip": "Cliquez pour plus de détails",
+  "sinceYearMonth": "Depuis {date}",
+  "@sinceYearMonth": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMM"
+      }
+    }
+  }
 }
