@@ -21,6 +21,12 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
   )..repeat();
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var localization = AppLocalizations.of(context)!;
     late var tiles = <ResumeTile>[
