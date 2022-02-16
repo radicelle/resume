@@ -1,3 +1,4 @@
+import 'package:curriculum_vitae/widgets/tabs/education_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
           body: const TabBarView(
             children: [
               JobsTab(),
-              Icon(Icons.directions_transit),
+              EducationTab(),
               Icon(Icons.directions_bike),
               Icon(Icons.directions_bike),
               Icon(Icons.sports),
