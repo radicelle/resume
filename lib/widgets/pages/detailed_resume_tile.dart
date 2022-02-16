@@ -8,6 +8,7 @@ class DetailedResumeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var title = item.title;
+    var maxWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: GestureDetector(
         onTap: () => Navigator.of(context).pop(),
@@ -23,12 +24,12 @@ class DetailedResumeTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width / 6,
+                      width: maxWidth / 6,
                       child: Image.asset(item.assetLocation),
                     ),
                     Center(
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 3,
+                        width: maxWidth > 500 ? 450 : (9 / 10) * maxWidth,
                         child: RichText(
                           softWrap: true,
                           text: TextSpan(children: <TextSpan>[
