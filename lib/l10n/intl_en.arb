@@ -23,5 +23,12 @@
   "mastersDegree":"Master's degree",
   "computerSciences":"Computer sciences",
   "image":"Image",
-  "technicalDegree":"Technical degree"
+  "technicalDegree":"Technical degree",
+  "graduate":"Graduate from {institution}",
+  "@graduate": {
+    "placeholders": {
+      "institution": {}
+    }
+  },
+  "and": "and"
 }

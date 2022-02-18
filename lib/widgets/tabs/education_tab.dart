@@ -1,6 +1,7 @@
 import 'package:curriculum_vitae/providers/dot_navigation_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -94,69 +95,83 @@ class _EducationTabState extends State<EducationTab>
             year: 2017,
             over: true,
           ),
-          const AnimatedDot(
-            left: timeBarStart,
-          ),
+          Consumer<DotNavigationNotifier>(builder: (context, navDot, _) {
+            return AnimatedPositioned(
+                duration: const Duration(milliseconds: 800),
+                child: const AnimatedDot(),
+                left: navDot.dotOffset - 4,
+                top: 22);
+          }),
           Positioned(
               top: headerHeight,
               left: 0,
               bottom: 0,
               right: 0,
               child: LayoutBuilder(builder: (context, constraints) {
+                var translations = AppLocalizations.of(context)!;
                 var educationPages = [
-                  Container(
-                    child: Row(
-                      children: [
-                        Image.asset('ensicaen.jpg'),
-                        const NavRichText(
-                          indexTop: 1,
-                        ),
-                        Image.asset('logo_SalernoUniversity.png')
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Image.asset('ensicaen.jpg'),
+                      const NavRichText(
+                        indexTop: 1,
+                        text: TextSpan(
+                            text: '',
+                            children: [TextSpan(text: 'All gradution')]),
+                      ),
+                      Image.asset('logo_SalernoUniversity.png')
+                    ],
                   ),
-                  Container(
-                    color: Colors.blue,
-                    child: Row(
-                      children: [
-                        Image.asset('ensicaen.jpg'),
-                        const NavRichText(
-                          indexBottom: 0,
-                          indexTop: 2,
-                        ),
-                        Image.asset('logo_SalernoUniversity.png')
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Image.asset('ensicaen.jpg'),
+                      const NavRichText(
+                        indexBottom: 0,
+                        indexTop: 2,
+                        text: TextSpan(text: 'Start UNISA', children: [
+                          TextSpan(text: 'Università delgi studi di Salerno')
+                        ]),
+                      ),
+                      Image.asset('logo_SalernoUniversity.png')
+                    ],
                   ),
-                  Container(
-                    color: Colors.black,
-                    child: Row(
-                      children: [
-                        Image.asset('ensicaen.jpg'),
-                        const NavRichText(
-                          indexBottom: 1,
-                          indexTop: 3,
-                        ),
-                        Image.asset('logo_SalernoUniversity.png')
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Image.asset('ensicaen.jpg'),
+                      const NavRichText(
+                        indexBottom: 1,
+                        indexTop: 3,
+                        text: TextSpan(text: 'Start ENSICAEN', children: [
+                          TextSpan(
+                              text:
+                                  'Ecole Nationale superieur d\'ingénieur de Caen')
+                        ]),
+                      ),
+                      Image.asset('logo_SalernoUniversity.png')
+                    ],
                   ),
-                  Container(
-                    color: Colors.green,
-                    child: Row(
-                      children: [
-                        Image.asset('ensicaen.jpg'),
-                        const NavRichText(
-                          indexBottom: 2,
-                        ),
-                        Image.asset('logo_SalernoUniversity.png')
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Image.asset('ensicaen.jpg'),
+                      NavRichText(
+                        indexBottom: 2,
+                        text: TextSpan(
+                            text:
+                                "${translations.graduate("ENSICAEN")} ${translations.and} ${translations.graduate("UNISA")}",
+                            children: [
+                              TextSpan(
+                                  text:
+                                      'Diplome universitaire et technologique de Ifs'),
+                            ]),
+                      ),
+                      Image.asset('logo_SalernoUniversity.png')
+                    ],
                   )
                 ];
                 return Consumer<DotNavigationNotifier>(
-                    builder: (context, consumer, _) =>
-                        educationPages[consumer.index]);
+                    builder: (context, consumer, _) => AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        child: educationPages[consumer.index]));
               }))
         ],
       ),
@@ -169,11 +184,13 @@ class NavRichText extends StatefulWidget {
     Key? key,
     this.indexTop,
     this.indexBottom,
+    required this.text,
   })  : assert(indexTop != null || indexBottom != null),
         super(key: key);
 
   final int? indexTop;
   final int? indexBottom;
+  final TextSpan text;
 
   @override
   State<NavRichText> createState() => _NavRichTextState();
@@ -193,7 +210,7 @@ class _NavRichTextState extends State<NavRichText> {
                 icon: const Icon(Icons.keyboard_arrow_up)),
           RichText(
             textAlign: TextAlign.center,
-            text: const TextSpan(text: 'Double diploma'),
+            text: widget.text,
           ),
           Expanded(child: Container()),
           if (widget.indexBottom != null)
