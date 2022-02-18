@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 
 class DotNavigationNotifier extends ChangeNotifier {
-  double _dotOffset = -100;
+  late List<double> _offsets;
+  late int _index;
 
-  DotNavigationNotifier({double? offset}) {
-    dotOffset = offset ?? -100;
+  DotNavigationNotifier(
+      {required double offset, required int index, required offsets}) {
+    _offsets = List.from(offsets);
+    _index = index;
   }
 
-  double get dotOffset => _dotOffset;
-  set dotOffset(double offset) {
-    _dotOffset = offset;
+  double get dotOffset => _offsets[_index];
+  int get index => _index;
+  List<double> get offsets => _offsets;
+
+  set index(int index) {
+    _index = index;
     notifyListeners();
   }
 }

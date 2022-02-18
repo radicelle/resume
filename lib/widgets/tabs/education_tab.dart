@@ -29,9 +29,17 @@ class _EducationTabState extends State<EducationTab>
     var timeBarLength = MediaQuery.of(context).size.width / 2;
     const double timeBarStart = 345;
     const double headerHeight = 60;
+
     return ChangeNotifierProvider(
-      create: (context) =>
-          DotNavigationNotifier(offset: timeBarLength + timeBarStart),
+      create: (context) => DotNavigationNotifier(
+          offset: timeBarLength + timeBarStart,
+          index: 3,
+          offsets: [
+            timeBarStart,
+            timeBarStart + timeBarLength / 3,
+            timeBarStart + timeBarLength / 1.5,
+            timeBarStart + timeBarLength
+          ]),
       child: Stack(
         children: [
           SizedBox(
@@ -67,11 +75,11 @@ class _EducationTabState extends State<EducationTab>
             top: 30,
             left: 350,
           ),
-          TimeDotButton(left: timeBarStart),
-          TimeDotButton(left: timeBarStart + timeBarLength / 3),
-          TimeDotButton(left: timeBarStart + timeBarLength / 1.5),
-          TimeDotButton(left: timeBarStart + timeBarLength),
-          TimeDotText(left: timeBarStart, year: 2011),
+          const TimeDotButton(index: 0),
+          const TimeDotButton(index: 1),
+          const TimeDotButton(index: 2),
+          const TimeDotButton(index: 3),
+          const TimeDotText(left: timeBarStart, year: 2011),
           TimeDotText(
             left: timeBarStart + timeBarLength / 3,
             year: 2013,
@@ -94,37 +102,111 @@ class _EducationTabState extends State<EducationTab>
               left: 0,
               bottom: 0,
               right: 0,
-              child: LayoutBuilder(
-                  builder: (context, constraints) => ListView(
-                        itemExtent: constraints.maxHeight,
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset('ensicaen.jpg'),
-                              Column(
-                                children: [
-                                  Expanded(
-                                      child: RichText(
-                                    textAlign: TextAlign.center,
-                                    text:
-                                        const TextSpan(text: 'Double diploma'),
-                                  )),
-                                  IconButton(
-                                      onPressed: () => {},
-                                      icon:
-                                          const Icon(Icons.keyboard_arrow_down))
-                                ],
-                              ),
-                              Image.asset('logo_SalernoUniversity.png')
-                            ],
-                          ),
-                          Container(
-                            color: Colors.blue,
-                          )
-                        ],
-                      )))
+              child: LayoutBuilder(builder: (context, constraints) {
+                var educationPages = [
+                  Container(
+                    child: Row(
+                      children: [
+                        Image.asset('ensicaen.jpg'),
+                        const NavRichText(
+                          indexTop: 1,
+                        ),
+                        Image.asset('logo_SalernoUniversity.png')
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.blue,
+                    child: Row(
+                      children: [
+                        Image.asset('ensicaen.jpg'),
+                        const NavRichText(
+                          indexBottom: 0,
+                          indexTop: 2,
+                        ),
+                        Image.asset('logo_SalernoUniversity.png')
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.black,
+                    child: Row(
+                      children: [
+                        Image.asset('ensicaen.jpg'),
+                        const NavRichText(
+                          indexBottom: 1,
+                          indexTop: 3,
+                        ),
+                        Image.asset('logo_SalernoUniversity.png')
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.green,
+                    child: Row(
+                      children: [
+                        Image.asset('ensicaen.jpg'),
+                        const NavRichText(
+                          indexBottom: 2,
+                        ),
+                        Image.asset('logo_SalernoUniversity.png')
+                      ],
+                    ),
+                  )
+                ];
+                return Consumer<DotNavigationNotifier>(
+                    builder: (context, consumer, _) =>
+                        educationPages[consumer.index]);
+              }))
         ],
       ),
     );
+  }
+}
+
+class NavRichText extends StatefulWidget {
+  const NavRichText({
+    Key? key,
+    this.indexTop,
+    this.indexBottom,
+  })  : assert(indexTop != null || indexBottom != null),
+        super(key: key);
+
+  final int? indexTop;
+  final int? indexBottom;
+
+  @override
+  State<NavRichText> createState() => _NavRichTextState();
+}
+
+class _NavRichTextState extends State<NavRichText> {
+  @override
+  Widget build(BuildContext context) {
+    final navNotifier = Provider.of<DotNavigationNotifier>(context);
+    return Expanded(
+      child: Column(
+        children: [
+          if (widget.indexTop != null)
+            IconButton(
+                onPressed: () =>
+                    changeEducationPage(navNotifier, widget.indexTop!),
+                icon: const Icon(Icons.keyboard_arrow_up)),
+          RichText(
+            textAlign: TextAlign.center,
+            text: const TextSpan(text: 'Double diploma'),
+          ),
+          Expanded(child: Container()),
+          if (widget.indexBottom != null)
+            IconButton(
+                onPressed: () =>
+                    changeEducationPage(navNotifier, widget.indexBottom!),
+                icon: const Icon(Icons.keyboard_arrow_down)),
+        ],
+      ),
+    );
+  }
+
+  void changeEducationPage(DotNavigationNotifier navNotifier, int index) {
+    navNotifier.index = index;
   }
 }

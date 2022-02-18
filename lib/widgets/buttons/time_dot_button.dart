@@ -6,21 +6,27 @@ import '../../providers/dot_navigation_notifier.dart';
 class TimeDotButton extends StatefulWidget {
   const TimeDotButton({
     Key? key,
-    required this.left,
+    required this.index,
   }) : super(key: key);
 
-  final double left;
+  final int index;
 
   @override
   State<TimeDotButton> createState() => _TimeDotButtonState();
 }
 
 class _TimeDotButtonState extends State<TimeDotButton> {
+  Future scrollMultiItem(GlobalKey key) async {
+    await Scrollable.ensureVisible(key.currentContext!,
+        duration: const Duration(seconds: 1));
+  }
+
   @override
   Widget build(BuildContext context) {
     final navNotifier = Provider.of<DotNavigationNotifier>(context);
+
     return Positioned(
-      left: widget.left - 8,
+      left: navNotifier.offsets[widget.index] - 8,
       top: 18,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -33,9 +39,13 @@ class _TimeDotButtonState extends State<TimeDotButton> {
             Icons.circle,
             color: Colors.white,
           ),
-          onPressed: () => {navNotifier.dotOffset = widget.left},
+          onPressed: () => _buttonPressed(navNotifier),
         ),
       ),
     );
+  }
+
+  void _buttonPressed(DotNavigationNotifier navNotifier) {
+    navNotifier.index = widget.index;
   }
 }
