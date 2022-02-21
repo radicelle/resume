@@ -1,5 +1,6 @@
 import 'package:curriculum_vitae/widgets/tabs/education_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
+import 'package:curriculum_vitae/widgets/tabs/language_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -56,7 +57,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
             children: [
               JobsTab(),
               EducationTab(),
-              Icon(Icons.directions_bike),
+              LanguageTab(),
               Icon(Icons.directions_bike),
               Icon(Icons.sports),
             ],
