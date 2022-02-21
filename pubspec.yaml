@@ -18,6 +18,7 @@ dependencies:
   google_fonts: ^2.3.1
   provider: ^6.0.2
   intl: ^0.17.0
+  signal_strength_indicator: ^0.4.1
 
 dev_dependencies:
   flutter_test:
