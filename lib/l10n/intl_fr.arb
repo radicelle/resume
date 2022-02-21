@@ -24,7 +24,7 @@
   "computerSciences":"Informatique",
   "image":"Image",
   "technicalDegree":"DUT",
-  "graduate":"Diplômé de {institution}",
+  "graduate":"diplômé de {institution}",
   "@graduate": {
     "placeholders": {
       "institution": {}

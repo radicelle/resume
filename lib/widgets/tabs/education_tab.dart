@@ -5,6 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '/globals.dart' as globals;
+import '../../extensions/StringCasingExtensions.dart';
 import '../buttons/time_dot_button.dart';
 import '../icons/animated/animated_dot.dart';
 import '../text/time_dot_text.dart';
@@ -27,155 +29,139 @@ class _EducationTabState extends State<EducationTab>
 
   @override
   Widget build(BuildContext context) {
-    var timeBarLength = MediaQuery.of(context).size.width / 2;
-    const double timeBarStart = 345;
-    const double headerHeight = 60;
-
-    return ChangeNotifierProvider(
-      create: (context) => DotNavigationNotifier(
-          offset: timeBarLength + timeBarStart,
-          index: 3,
-          offsets: [
-            timeBarStart,
-            timeBarStart + timeBarLength / 3,
-            timeBarStart + timeBarLength / 1.5,
-            timeBarStart + timeBarLength
-          ]),
-      child: Stack(
-        children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: headerHeight,
-            child: Container(
-              color: Colors.teal.withOpacity(0.7),
+    return LayoutBuilder(builder: (context, constraints) {
+      var timeBarLength = constraints.maxWidth / 2;
+      double timeBarStart = constraints.maxWidth / 3;
+      const double headerHeight = 60;
+      final displayExploreBottom = constraints.maxWidth < 850;
+      return ChangeNotifierProvider(
+        create: (context) => DotNavigationNotifier(
+            offset: timeBarLength + timeBarStart,
+            index: 3,
+            offsets: [
+              timeBarStart,
+              timeBarStart + timeBarLength / 3,
+              timeBarStart + timeBarLength / 1.5,
+              timeBarStart + timeBarLength
+            ]),
+        child: Stack(
+          children: [
+            SizedBox(
+              width: constraints.maxWidth,
+              height: headerHeight,
+              child: Container(
+                color: globals.headerColor,
+              ),
             ),
-          ),
-          Positioned(
-            child: Text('Education',
-                style: GoogleFonts.aBeeZee(
-                    textStyle: Theme.of(context).textTheme.headline5,
-                    color: Colors.white)),
-            left: 100,
-            top: 15,
-          ),
-          Positioned(
-            child: Text('Explore',
-                style: GoogleFonts.aBeeZee(
-                    textStyle: Theme.of(context).textTheme.bodyMedium,
-                    color: Colors.white.withOpacity(0.5))),
-            left: 250,
-            top: 20,
-          ),
-          Positioned(
-            child: SizedBox(
-                width: timeBarLength,
-                height: 1,
-                child: Container(
-                  color: Colors.white,
-                )),
-            top: 30,
-            left: 350,
-          ),
-          const TimeDotButton(index: 0),
-          const TimeDotButton(index: 1),
-          const TimeDotButton(index: 2),
-          const TimeDotButton(index: 3),
-          const TimeDotText(left: timeBarStart, year: 2011),
-          TimeDotText(
-            left: timeBarStart + timeBarLength / 3,
-            year: 2013,
-            over: true,
-          ),
-          TimeDotText(
-            left: timeBarStart + timeBarLength / 1.5,
-            year: 2015,
-          ),
-          TimeDotText(
-            left: timeBarStart + timeBarLength,
-            year: 2017,
-            over: true,
-          ),
-          Consumer<DotNavigationNotifier>(builder: (context, navDot, _) {
-            return AnimatedPositioned(
-                duration: const Duration(milliseconds: 800),
-                child: const AnimatedDot(),
-                left: navDot.dotOffset - 4,
-                top: 22);
-          }),
-          Positioned(
-              top: headerHeight,
-              left: 0,
-              bottom: 0,
-              right: 0,
-              child: LayoutBuilder(builder: (context, constraints) {
-                var translations = AppLocalizations.of(context)!;
-                var educationPages = [
-                  Row(
-                    children: [
-                      Image.asset('ensicaen.jpg'),
-                      const NavRichText(
-                        indexTop: 1,
-                        text: TextSpan(
-                            text: '',
-                            children: [TextSpan(text: 'All gradution')]),
+            Positioned(
+              child: Text('Education',
+                  style: GoogleFonts.aBeeZee(
+                      textStyle: Theme.of(context).textTheme.headline5,
+                      color: Colors.white)),
+              left: constraints.maxWidth / 12,
+              top: 15,
+            ),
+            Positioned(
+              child: Text('Explore',
+                  style: GoogleFonts.aBeeZee(
+                      textStyle: Theme.of(context).textTheme.bodyMedium,
+                      color: Colors.white.withOpacity(0.5))),
+              left: constraints.maxWidth / 4.7,
+              top: displayExploreBottom ? 40 : 20,
+            ),
+            Positioned(
+              child: SizedBox(
+                  width: timeBarLength,
+                  height: 1,
+                  child: Container(
+                    color: Colors.white,
+                  )),
+              top: 30,
+              left: timeBarStart,
+            ),
+            const TimeDotButton(index: 0),
+            const TimeDotButton(index: 1),
+            const TimeDotButton(index: 2),
+            const TimeDotButton(index: 3),
+            TimeDotText(left: timeBarStart, year: 2011),
+            TimeDotText(
+              left: timeBarStart + timeBarLength / 3,
+              year: 2013,
+              over: true,
+            ),
+            TimeDotText(
+              left: timeBarStart + timeBarLength / 1.5,
+              year: 2015,
+            ),
+            TimeDotText(
+              left: timeBarStart + timeBarLength,
+              year: 2017,
+              over: true,
+            ),
+            Consumer<DotNavigationNotifier>(builder: (context, navDot, _) {
+              return AnimatedPositioned(
+                  duration: const Duration(milliseconds: 800),
+                  child: const AnimatedDot(),
+                  left: navDot.dotOffset - 4,
+                  top: 22);
+            }),
+            Positioned(
+                top: headerHeight,
+                left: 0,
+                bottom: 0,
+                right: 0,
+                child: Builder(builder: (context) {
+                  var translations = AppLocalizations.of(context)!;
+                  var educationPages = [
+                    NavRichText(
+                      indexTop: 1,
+                      images: [
+                        Image.asset(
+                          'IUT-de-Caen.jpg',
+                          fit: BoxFit.contain,
+                        )
+                      ],
+                      text: const TextSpan(text: 'Start IUT Ifs'),
+                    ),
+                    NavRichText(
+                      indexBottom: 0,
+                      indexTop: 2,
+                      text: const TextSpan(text: 'Start ENSICAEN'),
+                      images: [
+                        Image.asset('ensicaen.jpg', fit: BoxFit.contain)
+                      ],
+                    ),
+                    NavRichText(
+                      indexBottom: 1,
+                      indexTop: 3,
+                      text: const TextSpan(text: 'Start UNISA'),
+                      images: [
+                        Image.asset('logo_SalernoUniversity.png',
+                            fit: BoxFit.contain)
+                      ],
+                    ),
+                    NavRichText(
+                      indexBottom: 2,
+                      text: TextSpan(
+                        text:
+                            "${translations.graduate("ENSICAEN").toCapitalized()} ${translations.and} ${translations.graduate("UNISA")}",
                       ),
-                      Image.asset('logo_SalernoUniversity.png')
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('ensicaen.jpg'),
-                      const NavRichText(
-                        indexBottom: 0,
-                        indexTop: 2,
-                        text: TextSpan(text: 'Start UNISA', children: [
-                          TextSpan(text: 'Università delgi studi di Salerno')
-                        ]),
-                      ),
-                      Image.asset('logo_SalernoUniversity.png')
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('ensicaen.jpg'),
-                      const NavRichText(
-                        indexBottom: 1,
-                        indexTop: 3,
-                        text: TextSpan(text: 'Start ENSICAEN', children: [
-                          TextSpan(
-                              text:
-                                  'Ecole Nationale superieur d\'ingénieur de Caen')
-                        ]),
-                      ),
-                      Image.asset('logo_SalernoUniversity.png')
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('ensicaen.jpg'),
-                      NavRichText(
-                        indexBottom: 2,
-                        text: TextSpan(
-                            text:
-                                "${translations.graduate("ENSICAEN")} ${translations.and} ${translations.graduate("UNISA")}",
-                            children: [
-                              TextSpan(
-                                  text:
-                                      'Diplome universitaire et technologique de Ifs'),
-                            ]),
-                      ),
-                      Image.asset('logo_SalernoUniversity.png')
-                    ],
-                  )
-                ];
-                return Consumer<DotNavigationNotifier>(
-                    builder: (context, consumer, _) => AnimatedContainer(
-                        duration: const Duration(seconds: 1),
-                        child: educationPages[consumer.index]));
-              }))
-        ],
-      ),
-    );
+                      images: [
+                        Image.asset('ensicaen.jpg', fit: BoxFit.contain),
+                        Image.asset('logo_SalernoUniversity.png',
+                            fit: BoxFit.contain)
+                      ],
+                    )
+                  ];
+
+                  return Consumer<DotNavigationNotifier>(
+                      builder: (context, consumer, _) =>
+                          educationPages[consumer.index]);
+                }))
+          ],
+        ),
+      );
+    });
   }
 }
 
@@ -184,6 +170,7 @@ class NavRichText extends StatefulWidget {
     Key? key,
     this.indexTop,
     this.indexBottom,
+    required this.images,
     required this.text,
   })  : assert(indexTop != null || indexBottom != null),
         super(key: key);
@@ -191,6 +178,7 @@ class NavRichText extends StatefulWidget {
   final int? indexTop;
   final int? indexBottom;
   final TextSpan text;
+  final List<Widget> images;
 
   @override
   State<NavRichText> createState() => _NavRichTextState();
@@ -200,27 +188,74 @@ class _NavRichTextState extends State<NavRichText> {
   @override
   Widget build(BuildContext context) {
     final navNotifier = Provider.of<DotNavigationNotifier>(context);
-    return Expanded(
-      child: Column(
+    return LayoutBuilder(builder: (context, constraints) {
+      var buttonsStart = constraints.maxWidth / 10;
+      double buttonSize = buttonsStart;
+      var imagesStartTop = constraints.maxHeight / 9;
+      var imagesStartLeft = buttonsStart + buttonSize + 10;
+      var imagesHeight = constraints.maxHeight / 4;
+      var imagesWidth = constraints.maxWidth - imagesStartLeft * 2;
+      return Stack(
         children: [
-          if (widget.indexTop != null)
-            IconButton(
-                onPressed: () =>
-                    changeEducationPage(navNotifier, widget.indexTop!),
-                icon: const Icon(Icons.keyboard_arrow_up)),
-          RichText(
-            textAlign: TextAlign.center,
-            text: widget.text,
-          ),
-          Expanded(child: Container()),
           if (widget.indexBottom != null)
-            IconButton(
-                onPressed: () =>
-                    changeEducationPage(navNotifier, widget.indexBottom!),
-                icon: const Icon(Icons.keyboard_arrow_down)),
+            Positioned(
+              top: constraints.maxHeight / 2,
+              left: buttonsStart,
+              child: FloatingActionButton(
+                  backgroundColor: globals.headerColor,
+                  onPressed: () =>
+                      changeEducationPage(navNotifier, widget.indexBottom!),
+                  child: const Icon(
+                    Icons.keyboard_arrow_left,
+                  )),
+            ),
+          Positioned(
+            top: imagesStartTop,
+            left: imagesStartLeft,
+            child: SizedBox(
+              width: imagesWidth,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ...widget.images.map((w) {
+                    const double imagePadding = 20;
+                    return Padding(
+                      padding: const EdgeInsetsDirectional.all(imagePadding),
+                      child: SizedBox(
+                          width: (imagesWidth / widget.images.length) -
+                              imagePadding * 2 * widget.images.length,
+                          height: imagesHeight,
+                          child: w),
+                    );
+                  })
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: imagesStartTop + imagesHeight + imagesStartTop,
+            left: imagesStartLeft,
+            child: SizedBox(
+              width: imagesWidth,
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: widget.text,
+              ),
+            ),
+          ),
+          if (widget.indexTop != null)
+            Positioned(
+              top: constraints.maxHeight / 2,
+              right: buttonsStart,
+              child: FloatingActionButton(
+                  backgroundColor: globals.headerColor,
+                  onPressed: () =>
+                      changeEducationPage(navNotifier, widget.indexTop!),
+                  child: const Icon(Icons.keyboard_arrow_right)),
+            ),
         ],
-      ),
-    );
+      );
+    });
   }
 
   void changeEducationPage(DotNavigationNotifier navNotifier, int index) {
