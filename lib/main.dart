@@ -1,3 +1,4 @@
+import 'package:curriculum_vitae/globals.dart' as globals;
 import 'package:curriculum_vitae/widgets/tabs/education_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/language_tab.dart';
@@ -34,7 +35,8 @@ class _TabBarDemoState extends State<TabBarDemo> {
         length: 5,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.black87,
+            backgroundColor: globals.headerColor,
+            foregroundColor: Colors.black87,
             bottom: const TabBar(
               indicatorColor: Colors.amberAccent,
               indicatorSize: TabBarIndicatorSize.label,
