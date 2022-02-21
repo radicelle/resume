@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../icons/normal/triple_icon.dart';
+import '../icons/animated/triple_icon.dart';
 import '../lists/jobs_list.dart';
 import '../tiles/resume_tile.dart';
 
