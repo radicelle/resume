@@ -1,5 +1,6 @@
 import 'package:curriculum_vitae/globals.dart' as globals;
 import 'package:curriculum_vitae/widgets/tabs/education_tab.dart';
+import 'package:curriculum_vitae/widgets/tabs/hobby_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/language_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/skills_tab.dart';
@@ -61,7 +62,7 @@ class _AppState extends State<App> {
               EducationTab(),
               LanguageTab(),
               SkillsTab(),
-              Icon(Icons.sports),
+              HobbyTab(),
             ],
           ),
         ),
