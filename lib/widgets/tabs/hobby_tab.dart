@@ -108,6 +108,7 @@ class HobbyTab extends StatelessWidget {
                 width: constraints.maxWidth,
                 height: constraints.maxHeight / 2,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
                       children: [
@@ -153,14 +154,11 @@ class HobbyTab extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Expanded(
-                            child: Container(
-                          color: Colors.blue,
-                        )),
+                        Expanded(child: Container()),
                         Image.asset(
                           'assets/science.gif',
                           width: imageWidth * 2,
-                          height: imageHeight,
+                          height: imageHeight * 0.75,
                         ),
                         const Text(
                           "Zetetic included",
