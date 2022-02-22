@@ -58,19 +58,13 @@ class _NavRichTextState extends State<NavRichText> {
                 children: [
                   ...widget.images.map((w) {
                     double imagePadding = 20 / widget.images.length;
-                    return Container(
-                      color: Colors.green,
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(imagePadding),
-                        child: Container(
-                          color: Colors.grey,
-                          child: SizedBox(
-                              width: (imagesWidth / widget.images.length) -
-                                  imagePadding * 2 * widget.images.length,
-                              height: imagesHeight,
-                              child: w),
-                        ),
-                      ),
+                    return Padding(
+                      padding: EdgeInsetsDirectional.all(imagePadding),
+                      child: SizedBox(
+                          width: (imagesWidth / widget.images.length) -
+                              imagePadding * 2 * widget.images.length,
+                          height: imagesHeight,
+                          child: w),
                     );
                   })
                 ],
