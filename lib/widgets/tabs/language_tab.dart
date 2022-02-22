@@ -38,7 +38,7 @@ class LanguageTab extends StatelessWidget {
                     width: realImageSize,
                     height: realImageSize,
                     child: Image.asset(
-                      'europe_cropped.png',
+                      'assets/europe_cropped.png',
                       fit: BoxFit.fill,
                     ),
                   ),

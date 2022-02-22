@@ -30,13 +30,9 @@ class DetailedResumeTile extends StatelessWidget {
                     Center(
                       child: SizedBox(
                         width: maxWidth > 500 ? 450 : (9 / 10) * maxWidth,
-                        child: RichText(
+                        child: Text(
+                          item.subtitle,
                           softWrap: true,
-                          text: TextSpan(children: <TextSpan>[
-                            TextSpan(
-                              text: item.subtitle,
-                            )
-                          ]),
                           textAlign: TextAlign.justify,
                         ),
                       ),

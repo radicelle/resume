@@ -16,7 +16,7 @@ class NavRichText extends StatefulWidget {
 
   final int? indexTop;
   final int? indexBottom;
-  final TextSpan text;
+  final String text;
   final List<Widget> images;
 
   @override
@@ -57,14 +57,20 @@ class _NavRichTextState extends State<NavRichText> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ...widget.images.map((w) {
-                    const double imagePadding = 20;
-                    return Padding(
-                      padding: const EdgeInsetsDirectional.all(imagePadding),
-                      child: SizedBox(
-                          width: (imagesWidth / widget.images.length) -
-                              imagePadding * 2 * widget.images.length,
-                          height: imagesHeight,
-                          child: w),
+                    double imagePadding = 20 / widget.images.length;
+                    return Container(
+                      color: Colors.green,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.all(imagePadding),
+                        child: Container(
+                          color: Colors.grey,
+                          child: SizedBox(
+                              width: (imagesWidth / widget.images.length) -
+                                  imagePadding * 2 * widget.images.length,
+                              height: imagesHeight,
+                              child: w),
+                        ),
+                      ),
                     );
                   })
                 ],
@@ -76,9 +82,9 @@ class _NavRichTextState extends State<NavRichText> {
             left: imagesStartLeft,
             child: SizedBox(
               width: imagesWidth,
-              child: RichText(
+              child: Text(
+                widget.text,
                 textAlign: TextAlign.center,
-                text: widget.text,
               ),
             ),
           ),

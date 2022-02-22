@@ -31,7 +31,7 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
     var localization = AppLocalizations.of(context)!;
     late var tiles = <ResumeTile>[
       ResumeTile(
-        assetLocation: 'medium.png',
+        assetLocation: 'assets/medium.png',
         title: localization.radicelleTile1,
         subtitle: localization.radicelleTile1Desc,
         logo: const FlutterLogo(
@@ -40,44 +40,46 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
         start: DateTime.utc(2021, 12, 01),
       ),
       ResumeTile(
-        assetLocation: 'medium.png',
+        assetLocation: 'assets/medium.png',
         title: localization.radicelleTile2,
         subtitle: localization.radicelleTile2Desc,
         logo: Image.asset(
-          "Kotlin_Icon.svg.png",
+          "assets/Kotlin_Icon.svg.png",
           width: 30,
         ),
         start: DateTime.utc(2020, 12, 07),
       ),
       ResumeTile(
-        assetLocation: 'eurecia.jpg',
+        assetLocation: 'assets/eurecia.jpg',
         title: localization.eureciaTile,
         subtitle: localization.eureciaTileDesc,
         logo: TripleIcon(controller: _controller, assets: const <String>[
-          "vue-logo.png",
-          "logo-java.png",
-          "Kotlin_Icon.svg.png"
+          "assets/vue-logo.png",
+          "assets/logo-java.png",
+          "assets/Kotlin_Icon.svg.png"
         ]),
         start: DateTime.utc(2018, 10, 15),
       ),
       ResumeTile(
-        assetLocation: 'logo-artal.png',
+        assetLocation: 'assets/logo-artal.png',
         title: localization.artalTile,
         subtitle: localization.artalTileDesc,
         logo: TripleIcon(controller: _controller, assets: const <String>[
-          "eclipse.png",
-          "logo-java.png",
-          "hibernate-logo.png"
+          "assets/eclipse.png",
+          "assets/logo-java.png",
+          "assets/hibernate-logo.png"
         ]),
         start: DateTime.utc(2017, 07, 01),
       ),
       ResumeTile(
-        assetLocation: 'ensicaen.jpg',
+        assetLocation: 'assets/ensicaen.jpg',
         title: localization.internshipTile,
         subtitle: localization.internshipTileDesc,
-        logo: TripleIcon(
-            controller: _controller,
-            assets: const <String>["eclipse.png", "logo-java.png", "xml.png"]),
+        logo: TripleIcon(controller: _controller, assets: const <String>[
+          "assets/eclipse.png",
+          "assets/logo-java.png",
+          "assets/xml.png"
+        ]),
         start: DateTime.utc(2021, 12, 01),
       ),
     ];

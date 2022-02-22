@@ -3,23 +3,22 @@ import 'package:curriculum_vitae/widgets/tabs/education_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/language_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/skills_tab.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
-  runApp(const TabBarDemo());
+  runApp(const App());
 }
 
-class TabBarDemo extends StatefulWidget {
-  const TabBarDemo({Key? key}) : super(key: key);
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
-  State<TabBarDemo> createState() => _TabBarDemoState();
+  State<App> createState() => _AppState();
 }
 
-class _TabBarDemoState extends State<TabBarDemo> {
+class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +35,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: globals.headerColor,
-            foregroundColor: Colors.black87,
+            foregroundColor: Colors.white,
             bottom: const TabBar(
               indicatorColor: Colors.amberAccent,
               indicatorSize: TabBarIndicatorSize.label,

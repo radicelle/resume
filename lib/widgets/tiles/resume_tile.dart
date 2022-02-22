@@ -63,16 +63,11 @@ class _ResumeTileState extends State<ResumeTile>
                 child: Padding(
                   padding: const EdgeInsets.only(left: 12.0),
                   child: Center(
-                    child: RichText(
+                    child: Text(
+                      widget.title,
                       softWrap: true,
-                      text: TextSpan(children: <TextSpan>[
-                        TextSpan(
-                            text: widget.title,
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.black.withOpacity(0.5))),
-                      ]),
-                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                          fontSize: 30, color: Colors.black.withOpacity(0.5)),
                     ),
                   ),
                 ),

@@ -1,12 +1,11 @@
 import 'package:curriculum_vitae/providers/dot_navigation_notifier.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '/globals.dart' as globals;
-import '../../extensions/StringCasingExtensions.dart';
+import '../../extensions/string_casing_extensions.dart';
 import '../buttons/time_dot_button.dart';
 import '../icons/animated/animated_dot.dart';
 import '../pages/content/nav_rich_text.dart';
@@ -32,7 +31,7 @@ class _EducationTabState extends State<EducationTab>
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       var timeBarLength = constraints.maxWidth / 2;
-      double timeBarStart = constraints.maxWidth / 3;
+      double timeBarStart = constraints.maxWidth / 2.5;
       const double headerHeight = 60;
       final displayExploreBottom = constraints.maxWidth < 850;
       return ChangeNotifierProvider(
@@ -118,38 +117,36 @@ class _EducationTabState extends State<EducationTab>
                       indexTop: 1,
                       images: [
                         Image.asset(
-                          'IUT-de-Caen.jpg',
+                          'assets/IUT-de-Caen.jpg',
                           fit: BoxFit.contain,
                         )
                       ],
-                      text: const TextSpan(text: 'Start IUT Ifs'),
+                      text: 'Start IUT Ifs',
                     ),
                     NavRichText(
                       indexBottom: 0,
                       indexTop: 2,
-                      text: const TextSpan(text: 'Start ENSICAEN'),
+                      text: 'Start ENSICAEN',
                       images: [
-                        Image.asset('ensicaen.jpg', fit: BoxFit.contain)
+                        Image.asset('assets/ensicaen.jpg', fit: BoxFit.contain)
                       ],
                     ),
                     NavRichText(
                       indexBottom: 1,
                       indexTop: 3,
-                      text: const TextSpan(text: 'Start UNISA'),
+                      text: 'Start UNISA',
                       images: [
-                        Image.asset('logo_SalernoUniversity.png',
+                        Image.asset('assets/logo_SalernoUniversity.png',
                             fit: BoxFit.contain)
                       ],
                     ),
                     NavRichText(
                       indexBottom: 2,
-                      text: TextSpan(
-                        text:
-                            "${translations.graduate("ENSICAEN").toCapitalized()} ${translations.and} ${translations.graduate("UNISA")}",
-                      ),
+                      text:
+                          '${translations.graduate("ENSICAEN").toCapitalized()} ${translations.and} ${translations.graduate("UNISA")}',
                       images: [
-                        Image.asset('ensicaen.jpg', fit: BoxFit.contain),
-                        Image.asset('logo_SalernoUniversity.png',
+                        Image.asset('assets/ensicaen.jpg', fit: BoxFit.contain),
+                        Image.asset('assets/logo_SalernoUniversity.png',
                             fit: BoxFit.contain)
                       ],
                     )

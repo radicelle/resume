@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/gestures/events.dart';
 import 'package:signal_strength_indicator/signal_strength_indicator.dart';
 
 class SkillAnimatedTile extends StatefulWidget {
