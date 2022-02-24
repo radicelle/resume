@@ -1,6 +1,7 @@
-import 'package:curriculum_vitae/globals.dart' as globals;
 import 'package:curriculum_vitae/widgets/tiles/wild_tile.dart';
 import 'package:flutter/material.dart';
+
+import '../text/body_text.dart';
 
 class DetailedResumeTile extends StatelessWidget {
   const DetailedResumeTile({required this.item, Key? key}) : super(key: key);
@@ -29,10 +30,9 @@ class DetailedResumeTile extends StatelessWidget {
                     Center(
                       child: SizedBox(
                         width: maxWidth > 500 ? 450 : (9 / 10) * maxWidth,
-                        child: Text(
+                        child: BodyText(
                           item.subtitle,
                           textAlign: TextAlign.justify,
-                          style: globals.bodyTextStyle(context),
                         ),
                       ),
                     )
