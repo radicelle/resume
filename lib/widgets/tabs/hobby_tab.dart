@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../text/body_text.dart';
+
 class HobbyTab extends StatelessWidget {
   const HobbyTab({Key? key}) : super(key: key);
 
@@ -36,7 +38,7 @@ class HobbyTab extends StatelessWidget {
                 ),
                 Row(
                   children: const [
-                    Text('Photography '),
+                    BodyText('Photography '),
                     Icon(Icons.photo_camera)
                   ],
                 ),
@@ -44,7 +46,7 @@ class HobbyTab extends StatelessWidget {
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
                     children: const [
-                      Text('Ghibli/Japan animation '),
+                      BodyText('Ghibli/Japan animation '),
                       Icon(Icons.local_movies)
                     ],
                   ),
@@ -53,7 +55,7 @@ class HobbyTab extends StatelessWidget {
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
                     children: const [
-                      Text('Video games '),
+                      BodyText('Video games '),
                       Icon(Icons.videogame_asset_rounded)
                     ],
                   ),
@@ -62,7 +64,7 @@ class HobbyTab extends StatelessWidget {
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
                     children: const [
-                      Text('Crafts/DIY '),
+                      BodyText('Crafts/DIY '),
                       Icon(FontAwesomeIcons.toolbox)
                     ],
                   ),
@@ -94,7 +96,7 @@ class HobbyTab extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: imageHeight / 40),
-                  child: const Text('Grow organic food'),
+                  child: const BodyText('Grow organic food'),
                 )
               ],
             ),
@@ -127,7 +129,7 @@ class HobbyTab extends StatelessWidget {
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
                             children: const [
-                              Text('Apnea/Fin swim '),
+                              BodyText('Apnea/Fin swim '),
                               Icon(Icons.bubble_chart_outlined)
                             ],
                           ),
@@ -136,7 +138,7 @@ class HobbyTab extends StatelessWidget {
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
                             children: const [
-                              Text('Running '),
+                              BodyText('Running '),
                               Icon(Icons.directions_run)
                             ],
                           ),
@@ -145,7 +147,7 @@ class HobbyTab extends StatelessWidget {
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
                             children: const [
-                              Text('Hiking '),
+                              BodyText('Hiking '),
                               Icon(Icons.directions_walk)
                             ],
                           ),
@@ -160,9 +162,8 @@ class HobbyTab extends StatelessWidget {
                           width: imageWidth * 2,
                           height: imageHeight * 0.75,
                         ),
-                        const Text(
+                        const BodyText(
                           "Zetetic included",
-                          textAlign: TextAlign.center,
                         )
                       ],
                     )

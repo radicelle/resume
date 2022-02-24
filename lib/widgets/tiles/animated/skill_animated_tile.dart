@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:signal_strength_indicator/signal_strength_indicator.dart';
 
+import '../../text/body_text.dart';
+
 class SkillAnimatedTile extends StatefulWidget {
   const SkillAnimatedTile(
       {required this.text, required this.size, required this.level, Key? key})
@@ -46,7 +48,7 @@ class _SkillAnimatedTileState extends State<SkillAnimatedTile>
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(widget.text),
+                BodyText(widget.text),
                 SignalStrengthIndicator.bars(
                   value: widget.level / 10,
                   size: widget.size / 2 - widget.size * 0.2,

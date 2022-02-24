@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../text/body_text.dart';
+
 class LanguageTab extends StatelessWidget {
   const LanguageTab({Key? key}) : super(key: key);
 
@@ -17,13 +19,13 @@ class LanguageTab extends StatelessWidget {
             children: [
               Expanded(child: Container()),
               const ListTile(
-                title: Text('French'),
-                subtitle: Text('Mother tongue'),
+                title: BodyText('French'),
+                subtitle: BodyText('Mother tongue'),
               ),
               Expanded(child: Container()),
               const ListTile(
-                title: Text('English'),
-                subtitle: Text('Fluent: 830 TOEIC'),
+                title: BodyText('English'),
+                subtitle: BodyText('Fluent: 830 TOEIC'),
               ),
               Expanded(child: Container()),
             ],
@@ -79,19 +81,19 @@ class LanguageTab extends StatelessWidget {
             children: [
               Expanded(child: Container()),
               const ListTile(
-                title: Text(
+                title: BodyText(
                   'Italien',
                   textAlign: TextAlign.right,
                 ),
-                subtitle: Text(
+                subtitle: BodyText(
                   'Fluent: 1 year and a half living in italy',
                   textAlign: TextAlign.right,
                 ),
               ),
               Expanded(child: Container()),
               const ListTile(
-                title: Text('German', textAlign: TextAlign.right),
-                subtitle: Text(
+                title: BodyText('German', textAlign: TextAlign.right),
+                subtitle: BodyText(
                     'Beginner: 6 month internship + 8 years scholarship',
                     textAlign: TextAlign.right),
               ),

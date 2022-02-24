@@ -79,6 +79,7 @@ class _NavRichTextState extends State<NavRichText> {
               child: Text(
                 widget.text,
                 textAlign: TextAlign.center,
+                style: globals.bodyTextStyle(context),
               ),
             ),
           ),
