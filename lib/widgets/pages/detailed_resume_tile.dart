@@ -1,10 +1,10 @@
+import 'package:curriculum_vitae/globals.dart' as globals;
+import 'package:curriculum_vitae/widgets/tiles/wild_tile.dart';
 import 'package:flutter/material.dart';
-
-import '../tiles/resume_tile.dart';
 
 class DetailedResumeTile extends StatelessWidget {
   const DetailedResumeTile({required this.item, Key? key}) : super(key: key);
-  final ResumeTile item;
+  final WildTile item;
   @override
   Widget build(BuildContext context) {
     var title = item.title;
@@ -13,7 +13,6 @@ class DetailedResumeTile extends StatelessWidget {
       child: GestureDetector(
         onTap: () => Navigator.of(context).pop(),
         child: Scaffold(
-          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title: Center(child: Text(title)),
           ),
@@ -32,8 +31,8 @@ class DetailedResumeTile extends StatelessWidget {
                         width: maxWidth > 500 ? 450 : (9 / 10) * maxWidth,
                         child: Text(
                           item.subtitle,
-                          softWrap: true,
                           textAlign: TextAlign.justify,
+                          style: globals.bodyTextStyle(context),
                         ),
                       ),
                     )

@@ -1,8 +1,8 @@
+import 'package:curriculum_vitae/widgets/tiles/wild_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../pages/detailed_resume_tile.dart';
-import '../tiles/resume_tile.dart';
 import '../tiles/time_dot_separator.dart';
 
 class JobsList extends StatelessWidget {
@@ -13,7 +13,7 @@ class JobsList extends StatelessWidget {
     required this.lineLeftShift,
   }) : super(key: key);
 
-  final List<ResumeTile> tiles;
+  final List<WildTile> tiles;
   final AppLocalizations localization;
   final double lineLeftShift;
 

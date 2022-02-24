@@ -1,7 +1,8 @@
+import 'package:curriculum_vitae/globals.dart' as globals;
 import 'package:flutter/material.dart';
 
-class ResumeTile extends StatefulWidget {
-  const ResumeTile(
+class WildTile extends StatelessWidget {
+  const WildTile(
       {required this.assetLocation,
       required this.title,
       required this.subtitle,
@@ -19,26 +20,6 @@ class ResumeTile extends StatefulWidget {
   final DateTime? end;
 
   @override
-  _ResumeTileState createState() => _ResumeTileState();
-}
-
-class _ResumeTileState extends State<ResumeTile>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    _controller = AnimationController(vsync: this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     var tileHeight = MediaQuery.of(context).size.height / 3;
     var tileWidth = MediaQuery.of(context).size.width / 1.5;
@@ -53,7 +34,7 @@ class _ResumeTileState extends State<ResumeTile>
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  widget.assetLocation,
+                  assetLocation,
                   height: imageHeight,
                   width: headingWidth,
                   fit: BoxFit.contain,
@@ -64,20 +45,20 @@ class _ResumeTileState extends State<ResumeTile>
                   padding: const EdgeInsets.only(left: 12.0),
                   child: Center(
                     child: Text(
-                      widget.title,
+                      title,
                       softWrap: true,
-                      style: TextStyle(
-                          fontSize: 30, color: Colors.black.withOpacity(0.5)),
+                      style: globals.headerTextStyle(context),
                     ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 12.0),
-                child: widget.logo,
+                child: logo,
               ),
             ],
           )),
     );
+    ;
   }
 }

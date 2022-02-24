@@ -1,4 +1,4 @@
-import 'package:curriculum_vitae/widgets/tiles/resume_tile.dart';
+import 'package:curriculum_vitae/widgets/tiles/wild_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -12,7 +12,7 @@ class TimeDotSeparator extends StatelessWidget {
 
   final double lineLeftShift;
   final AppLocalizations localization;
-  final ResumeTile tile;
+  final WildTile tile;
 
   @override
   Widget build(BuildContext context) {

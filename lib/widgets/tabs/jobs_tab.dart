@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../icons/animated/triple_icon.dart';
 import '../lists/jobs_list.dart';
-import '../tiles/resume_tile.dart';
+import '../tiles/wild_tile.dart';
 
 class JobsTab extends StatefulWidget {
   const JobsTab({
@@ -29,8 +29,8 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var localization = AppLocalizations.of(context)!;
-    late var tiles = <ResumeTile>[
-      ResumeTile(
+    late var tiles = <WildTile>[
+      WildTile(
         assetLocation: 'assets/medium.png',
         title: localization.radicelleTile1,
         subtitle: localization.radicelleTile1Desc,
@@ -39,7 +39,7 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
         ),
         start: DateTime.utc(2021, 12, 01),
       ),
-      ResumeTile(
+      WildTile(
         assetLocation: 'assets/medium.png',
         title: localization.radicelleTile2,
         subtitle: localization.radicelleTile2Desc,
@@ -49,7 +49,7 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
         ),
         start: DateTime.utc(2020, 12, 07),
       ),
-      ResumeTile(
+      WildTile(
         assetLocation: 'assets/eurecia.jpg',
         title: localization.eureciaTile,
         subtitle: localization.eureciaTileDesc,
@@ -60,7 +60,7 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
         ]),
         start: DateTime.utc(2018, 10, 15),
       ),
-      ResumeTile(
+      WildTile(
         assetLocation: 'assets/logo-artal.png',
         title: localization.artalTile,
         subtitle: localization.artalTileDesc,
@@ -71,7 +71,7 @@ class _JobsTabState extends State<JobsTab> with TickerProviderStateMixin {
         ]),
         start: DateTime.utc(2017, 07, 01),
       ),
-      ResumeTile(
+      WildTile(
         assetLocation: 'assets/ensicaen.jpg',
         title: localization.internshipTile,
         subtitle: localization.internshipTileDesc,
