@@ -84,7 +84,7 @@
     }
   },
   "crafts": "bricolage",
-  "DIY": "DIY",
+  "diy": "DIY",
   "running": "course à pied",
   "hiking": "randonnée",
   "growOrganicFood": "faire pousser du bio",
