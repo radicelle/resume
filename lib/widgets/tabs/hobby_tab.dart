@@ -13,7 +13,7 @@ class HobbyTab extends StatelessWidget {
       var imageHeight = constraints.maxHeight / 4;
       return Stack(
         children: [
-          Positioned(
+          /*Positioned(
             child: Padding(
               padding: EdgeInsets.only(top: imageHeight / 40),
               child: Image.asset(
@@ -24,7 +24,7 @@ class HobbyTab extends StatelessWidget {
             ),
             top: 0,
             left: 0,
-          ),
+          ),*/
           Positioned(
             child: Column(
               children: [
@@ -74,7 +74,7 @@ class HobbyTab extends StatelessWidget {
             top: 0,
             right: 0,
           ),
-          Positioned(
+          /*Positioned(
             child: Padding(
               padding: EdgeInsets.only(bottom: imageHeight / 40),
               child: Image.asset(
@@ -85,7 +85,7 @@ class HobbyTab extends StatelessWidget {
             ),
             right: 0,
             bottom: 0,
-          ),
+          ),*/
           Positioned(
             child: Column(
               children: [

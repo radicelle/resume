@@ -26,7 +26,7 @@ class _TimeDotButtonState extends State<TimeDotButton> {
     final navNotifier = Provider.of<DotNavigationNotifier>(context);
 
     return Positioned(
-      left: navNotifier.offsets[widget.index] - 8,
+      left: navNotifier.offsets[widget.index] - 10,
       top: 18,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,

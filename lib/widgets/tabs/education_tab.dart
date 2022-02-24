@@ -102,7 +102,7 @@ class _EducationTabState extends State<EducationTab>
               return AnimatedPositioned(
                   duration: const Duration(milliseconds: 800),
                   child: const AnimatedDot(),
-                  left: navDot.dotOffset - 4,
+                  left: navDot.dotOffset - 6,
                   top: 22);
             }),
             Positioned(
