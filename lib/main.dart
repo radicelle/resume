@@ -4,6 +4,8 @@ import 'package:curriculum_vitae/widgets/tabs/hobby_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/jobs_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/language_tab.dart';
 import 'package:curriculum_vitae/widgets/tabs/skills_tab.dart';
+import 'package:curriculum_vitae/widgets/text/body_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,17 +22,21 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  late bool language = false;
+
   @override
   Widget build(BuildContext context) {
+    const supportedLocales = [Locale('en', ''), Locale('fr', '')];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      supportedLocales: const [Locale('en', ''), Locale('fr', '')],
-      locale: const Locale('en', ''),
+      supportedLocales: supportedLocales,
+      locale: supportedLocales[language ? 1 : 0],
       home: DefaultTabController(
         length: 5,
         child: Scaffold(
@@ -49,12 +55,34 @@ class _AppState extends State<App> {
                 Tab(icon: Icon(Icons.play_arrow_sharp)),
               ],
             ),
-            title: const Center(
-              child: Text(
-                'Curriculum vitæ',
-                textAlign: TextAlign.center,
+            title: Stack(children: [
+              const Center(
+                child: Text(
+                  'Curriculum vitæ',
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Row(
+                  children: [
+                    const BodyText(
+                      'en',
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 20,
+                      child: CupertinoSwitch(
+                        value: language,
+                        onChanged: _changeLanguage,
+                      ),
+                    ),
+                    const BodyText('fr', color: Colors.white)
+                  ],
+                ),
+              )
+            ]),
           ),
           body: const TabBarView(
             children: [
@@ -68,5 +96,11 @@ class _AppState extends State<App> {
         ),
       ),
     );
+  }
+
+  void _changeLanguage(bool value) {
+    setState(() {
+      language = value;
+    });
   }
 }
