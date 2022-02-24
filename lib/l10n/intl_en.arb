@@ -3,9 +3,9 @@
   "radicelleTile1":"Full stack multiplatform with Flutter",
   "radicelleTile1Desc":"I realized the app I was building had more potential if it was to be in Flutter so I learned and reworked it with Flutter and it was the right choice. I am now working on a stack MVVM architecture and I am planning to learn Go to get replace Ktor with Gin.",
   "radicelleTile2":"Full stack Web dev+Ops ReactJS/Ktor",
-  "radicelleTile2Desc":"I founded Radicelle and bought a few domain names. It will be series of web platforms willing to ease ”neo rural” people in selling agricultural products, develop their production systems and boost their local distribution by proposing simple and affordable services. Its stack is: \n    •Frontend: ReactJS facilité par Material-UI\n    •Base de données: KMongo sur mongo Altas (cloud)\n    •Backend : Ktor pour Kotlin microservices et Kotlinx Serialization\n    •Build: Gradle with Kotlin gradle DSL",
+  "radicelleTile2Desc":"I founded Radicelle and bought a few domain names. It will be series of web platforms willing to ease ”neo rural” people in selling agricultural products, develop their production systems and boost their local distribution by proposing simple and affordable services. Its stack is: \n    •Frontend: ReactJS eased by Material-UI\n    •Database: KMongo on mongo Altas (cloud)\n    •Backend : Ktor for Kotlin microservices and Kotlinx Serialization\n    •Build: Gradle with Kotlin gradle DSL",
   "eureciaTile":"Full stack Web developer",
-  "eureciaTileDesc":"Carrying out three main tasks, first maintaining java over struts + jsp legacy eurecia.com platform code. The second was developing new features using REST API with Java and lately Kotlin (including spec challenging). The third was developing VueJS components calling the\n    •REST APIs we created and bind them to the legacy JSP struts architecture. Using Spring annotations and sometimes plain SQL to communicate whit a MariaDB database, my team and I were responsible for the optimization ROI to be acceptable and performances of the code to be production grade.",
+  "eureciaTileDesc":"Carrying out three main tasks : \n   1) Maintaining java over struts + jsp legacy eurecia.com platform code.\n   2) Developing new features using REST API with Java and lately Kotlin (including spec challenging).\n   3) Developing VueJS components calling the REST APIs we created.\nWe had to deal with legacy JSP struts architecture. Using Spring annotations and sometimes plain SQL to communicate whit a MariaDB database, my team and I were responsible for the optimization ROI to be acceptable and performances of the code to be production grade.",
   "artalTile":"Full stack Eclipse RCP developer",
   "artalTileDesc":"Software development for Airbus model simulation process: Creation of front-end components using Nebula Nattables and Sirius Plugin for instance. Participation in the migration from CDO to Hibernate persistence framework. Creation and optimization of JPA queries to retrieve data in back-end. Strong knowledge in modular development.",
   "internshipTile":"Scholar 6 month internship at Bosch",
@@ -30,5 +30,63 @@
       "institution": {}
     }
   },
-  "and": "and"
+  "entered":"Entered {institution}",
+  "@entered": {
+    "placeholders": {
+      "institution": {}
+    }
+  },
+  "and": "and",
+  "beginner": "beginner",
+  "fluent": "fluent",
+  "mothertongue": "mother tongue",
+  "month": "{count, plural, =0{zero month} =1{one month} other{{count} months}}",
+  "@month": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "year": "{count, plural, =0{zero year} =1{one year} other{{count} years}}",
+  "@year": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "day": "{count, plural, =0{zero day} =1{one day} other{{count} days}}",
+  "@day": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "andAHalf": "and a half",
+  "scholarship": "scholarship",
+  "internship": "internship",
+  "english": "english",
+  "german": "german",
+  "italian": "italian",
+  "italy": "italy",
+  "french": "french",
+  "japanese": "japanese",
+  "livingIn": "living in {country}",
+  "@livingIn": {
+    "placeholders": {
+      "country": {}
+    }
+  },
+  "photography": "photography",
+  "apnea": "apnea",
+  "finSwiming": "fin swiming",
+  "videoGames": "video games",
+  "animation": "{name} animation",
+  "@animation": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "crafts": "crafts",
+  "diy": "DIY",
+  "running": "running",
+  "hiking": "hiking",
+  "growOrganicFood": "grow organic food",
+  "zetIncluded": "zetetic included"
 }

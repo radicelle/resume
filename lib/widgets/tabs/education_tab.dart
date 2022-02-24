@@ -121,12 +121,12 @@ class _EducationTabState extends State<EducationTab>
                           fit: BoxFit.contain,
                         )
                       ],
-                      text: 'Start IUT Ifs',
+                      text: translations.entered('IUT Ifs'),
                     ),
                     NavRichText(
                       indexBottom: 0,
                       indexTop: 2,
-                      text: 'Start ENSICAEN',
+                      text: translations.entered('ENSICAEN'),
                       images: [
                         Image.asset('assets/ensicaen.jpg', fit: BoxFit.contain)
                       ],
@@ -134,7 +134,7 @@ class _EducationTabState extends State<EducationTab>
                     NavRichText(
                       indexBottom: 1,
                       indexTop: 3,
-                      text: 'Start UNISA',
+                      text: translations.entered('UNISA'),
                       images: [
                         Image.asset('assets/logo_SalernoUniversity.png',
                             fit: BoxFit.contain)

@@ -1,4 +1,6 @@
+import 'package:curriculum_vitae/extensions/string_casing_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../text/body_text.dart';
@@ -11,6 +13,7 @@ class HobbyTab extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       var imageWidth = constraints.maxWidth / 4;
       var imageHeight = constraints.maxHeight / 4;
+      var tr = AppLocalizations.of(context)!;
       return Stack(
         children: [
           /*Positioned(
@@ -37,35 +40,36 @@ class HobbyTab extends StatelessWidget {
                   ),
                 ),
                 Row(
-                  children: const [
-                    BodyText('Photography '),
-                    Icon(Icons.photo_camera)
+                  children: [
+                    BodyText('${tr.photography.toCapitalized()} '),
+                    const Icon(Icons.photo_camera)
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
-                    children: const [
-                      BodyText('Ghibli/Japan animation '),
-                      Icon(Icons.local_movies)
+                    children: [
+                      BodyText(
+                          '${tr.animation('Ghibli/${tr.japanese.toCapitalized()}').toCapitalized()} '),
+                      const Icon(Icons.local_movies)
                     ],
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
-                    children: const [
-                      BodyText('Video games '),
-                      Icon(Icons.videogame_asset_rounded)
+                    children: [
+                      BodyText('${tr.videoGames.toCapitalized()} '),
+                      const Icon(Icons.videogame_asset_rounded)
                     ],
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: imageHeight / 40),
                   child: Row(
-                    children: const [
-                      BodyText('Crafts/DIY '),
-                      Icon(FontAwesomeIcons.toolbox)
+                    children: [
+                      BodyText('${tr.crafts.toCapitalized()}/${tr.diy} '),
+                      const Icon(FontAwesomeIcons.toolbox)
                     ],
                   ),
                 )
@@ -96,7 +100,7 @@ class HobbyTab extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: imageHeight / 40),
-                  child: const BodyText('Grow organic food'),
+                  child: BodyText(tr.growOrganicFood.toCapitalized()),
                 )
               ],
             ),
@@ -128,27 +132,28 @@ class HobbyTab extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
-                            children: const [
-                              BodyText('Apnea/Fin swim '),
-                              Icon(Icons.bubble_chart_outlined)
+                            children: [
+                              BodyText(
+                                  '${tr.apnea.toCapitalized()}/${tr.finSwiming.toCapitalized()} '),
+                              const Icon(Icons.bubble_chart_outlined)
                             ],
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
-                            children: const [
-                              BodyText('Running '),
-                              Icon(Icons.directions_run)
+                            children: [
+                              BodyText('${tr.running.toCapitalized()} '),
+                              const Icon(Icons.directions_run)
                             ],
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: imageHeight / 20),
                           child: Row(
-                            children: const [
-                              BodyText('Hiking '),
-                              Icon(Icons.directions_walk)
+                            children: [
+                              BodyText('${tr.hiking.toCapitalized()} '),
+                              const Icon(Icons.directions_walk)
                             ],
                           ),
                         )
@@ -162,8 +167,8 @@ class HobbyTab extends StatelessWidget {
                           width: imageWidth * 2,
                           height: imageHeight * 0.75,
                         ),
-                        const BodyText(
-                          "Zetetic included",
+                        BodyText(
+                          tr.zetIncluded.toCapitalized(),
                         )
                       ],
                     )

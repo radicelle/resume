@@ -1,4 +1,6 @@
+import 'package:curriculum_vitae/extensions/string_casing_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../text/body_text.dart';
 
@@ -12,20 +14,22 @@ class LanguageTab extends StatelessWidget {
       var imageHeight = constraints.maxHeight / 1.01;
       var sizeCondition = imageWidth < imageHeight;
       var realImageSize = sizeCondition ? imageWidth : imageHeight;
+      var tr = AppLocalizations.of(context)!;
+
       return Row(
         children: [
           Expanded(
               child: Column(
             children: [
               Expanded(child: Container()),
-              const ListTile(
-                title: BodyText('French'),
-                subtitle: BodyText('Mother tongue'),
+              ListTile(
+                title: BodyText(tr.french.toCapitalized()),
+                subtitle: BodyText(tr.mothertongue.toCapitalized()),
               ),
               Expanded(child: Container()),
-              const ListTile(
-                title: BodyText('English'),
-                subtitle: BodyText('Fluent: 830 TOEIC'),
+              ListTile(
+                title: BodyText(tr.english.toCapitalized()),
+                subtitle: BodyText('${tr.fluent.toCapitalized()}: 820 TOEIC'),
               ),
               Expanded(child: Container()),
             ],
@@ -80,21 +84,22 @@ class LanguageTab extends StatelessWidget {
               child: Column(
             children: [
               Expanded(child: Container()),
-              const ListTile(
+              ListTile(
                 title: BodyText(
-                  'Italien',
+                  tr.italian.toCapitalized(),
                   textAlign: TextAlign.right,
                 ),
                 subtitle: BodyText(
-                  'Fluent: 1 year and a half living in italy',
+                  '${tr.fluent.toCapitalized()}: ${tr.year(1)} ${tr.andAHalf} ${tr.livingIn(tr.italy.toCapitalized())}',
                   textAlign: TextAlign.right,
                 ),
               ),
               Expanded(child: Container()),
-              const ListTile(
-                title: BodyText('German', textAlign: TextAlign.right),
+              ListTile(
+                title: BodyText(tr.german.toCapitalized(),
+                    textAlign: TextAlign.right),
                 subtitle: BodyText(
-                    'Beginner: 6 month internship + 8 years scholarship',
+                    '${tr.beginner.toCapitalized()}: ${tr.month(6)} ${tr.internship} + ${tr.year(8)} ${tr.scholarship}',
                     textAlign: TextAlign.right),
               ),
               Expanded(child: Container()),
